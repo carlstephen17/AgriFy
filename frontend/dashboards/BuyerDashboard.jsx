@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
-function FarmerDashboard({ route, navigation }) {
+function BuyerDashboard({ route, navigation }) {
   const { username } = route.params || {};
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome {username || 'Farmer'}!</Text>
+      <Text style={styles.text}>Welcome {username || 'Buyer'}!</Text>
 
       <TouchableOpacity
         style={[styles.button, styles.backButton]}
@@ -18,7 +18,7 @@ function FarmerDashboard({ route, navigation }) {
   );
 }
 
-export default FarmerDashboard;
+export default BuyerDashboard;
 
 const styles = StyleSheet.create({
   container: {

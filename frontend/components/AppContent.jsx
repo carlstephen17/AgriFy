@@ -1,14 +1,6 @@
     import { useNavigation } from '@react-navigation/native';
     import React, { useState } from 'react';
-    import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-    Image,
-    Dimensions,
-    Modal,
-    } from 'react-native';
+    import { StyleSheet, Text, TouchableOpacity, View, Image, Dimensions, Modal } from 'react-native';
 
     const { width } = Dimensions.get('window');
 
@@ -24,7 +16,7 @@
         />
 
         <View style={styles.bottomSection}>
-            <Text style={styles.title}>Welcome to AgriFy!</Text>
+            <Text style={styles.title}>Welcome to AgriFy</Text>
 
             <Text style={styles.description}>
             Connecting farmers and buyers directly to maximize profits and reduce
@@ -51,14 +43,14 @@
 
                 <TouchableOpacity
                 style={styles.modalButton}
-                onPress={() => navigation.navigate('FarmerSignIn', { role: 'Farmer' })}
+                onPress={() => navigation.navigate('FarmerSignUp', { role: 'Farmer' })}
                 >
                 <Text style={styles.modalButtonText}>Farmer</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                 style={styles.modalButton}
-                onPress={() => navigation.navigate('BuyerSignIn', { role: 'Buyer' })}
+                onPress={() => navigation.navigate('BuyerSignUp', { role: 'Buyer' })}
                 >
                 <Text style={styles.modalButtonText}>Buyer</Text>
                 </TouchableOpacity>
@@ -121,7 +113,7 @@
         backgroundColor: '#fff',
         paddingVertical: 12,
         paddingHorizontal: 30,
-        borderRadius: 5,
+        borderRadius: 50,
     },
 
     buttonText: {

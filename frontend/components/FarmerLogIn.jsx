@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
-import { 
-  View, Text, StyleSheet, TouchableOpacity, TextInput, Platform 
-} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Platform } from 'react-native';
 
-function FarmerSignIn({ route, navigation }) {
+function FarmerLogIn({ route, navigation }) {
   const { role } = route.params || {};
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignIn = () => {
-    // Navigate to dashboard
+  const handleLogIn = () => {
+    // Navigate to login screen
     navigation.navigate('FarmerDashboard', { username });
   };
 
-  const handleAlreadyAccount = () => {
-    // Navigate to SignUp screen
-    navigation.navigate('SignUp', { role });
+  const handleForgotPassword = () => {
+    // Navigate to login screen
+    navigation.navigate('FarmerLogIn', { role });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign In as {role || 'Farmer'}</Text>
+      <Text style={styles.title}>Log In as {role || 'Farmer'}</Text>
 
       <TextInput
         style={styles.input}
@@ -40,18 +38,17 @@ function FarmerSignIn({ route, navigation }) {
         onChangeText={setPassword}
       />
 
-      {/* Right-aligned tappable text */}
-      <TouchableOpacity onPress={handleAlreadyAccount} activeOpacity={0.7}>
-        <Text style={styles.alreadyAccountText}>Already Have an Account?</Text>
+      <TouchableOpacity onPress={handleForgotPassword} activeOpacity={0.7}>
+        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
-        <Text style={styles.buttonText}>Sign In</Text>
+      <TouchableOpacity style={styles.logInButton} onPress={handleLogIn}>
+        <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
 
       <TouchableOpacity 
         style={styles.backButton} 
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('AppContent')}
       >
         <Text style={styles.buttonText}>Back to Home</Text>
       </TouchableOpacity>
@@ -59,7 +56,7 @@ function FarmerSignIn({ route, navigation }) {
   );
 }
 
-export default FarmerSignIn;
+export default FarmerLogIn;
 
 const styles = StyleSheet.create({
   container: {
@@ -88,16 +85,16 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 5,
-    elevation: 2, // Android shadow
+    elevation: 2, 
   },
-  alreadyAccountText: {
+  forgotPasswordText: {
     textAlign: 'right',
     color: '#4CAF50',
     fontWeight: '600',
     marginBottom: 25,
     fontSize: 14,
   },
-  signInButton: {
+  logInButton: {
     width: '100%',
     backgroundColor: '#4CAF50',
     paddingVertical: 15,
