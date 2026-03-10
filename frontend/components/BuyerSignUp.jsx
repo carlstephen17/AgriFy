@@ -5,15 +5,15 @@ function BuyerSignUp({ route, navigation }) {
   const { role } = route.params || {};
 
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignUp = () => {
-    // Navigate to login screen
-    navigation.navigate('BuyerLogIn', { username });
+    navigation.navigate('BuyerLogIn', { username, email, phone });
   };
 
   const handleAlreadyAccount = () => {
-    // Navigate to login screen
     navigation.navigate('BuyerLogIn', { role });
   };
 
@@ -27,6 +27,24 @@ function BuyerSignUp({ route, navigation }) {
         placeholderTextColor="#aaa"
         value={username}
         onChangeText={setUsername}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor="#aaa"
+        keyboardType="email-address"
+        value={email}
+        onChangeText={setEmail}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Phone Number"
+        placeholderTextColor="#aaa"
+        keyboardType="phone-pad"
+        value={phone}
+        onChangeText={setPhone}
       />
 
       <TextInput
@@ -56,7 +74,7 @@ function BuyerSignUp({ route, navigation }) {
   );
 }
 
-export default BuyerSignUp;
+export default BuyerSignUp;;
 
 const styles = StyleSheet.create({
   container: {
